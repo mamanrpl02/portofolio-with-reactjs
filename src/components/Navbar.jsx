@@ -25,7 +25,7 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="nav-containt">
         <div className="nav-logo">
-          <a href="#">Manzweb.my.id</a>
+          <a href="#" className="hover-white">Manzweb.my.id</a>
         </div>
 
         <div className={`nav-items ${isOpen ? "active" : ""}`} id="nav-items">

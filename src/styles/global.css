@@ -23,6 +23,13 @@
   color: #c9d1d9;
 }
 
+.hover-white {
+  transition: all 0.5s ease;
+}
+
+.hover-white:hover {
+  color: white;
+}
 /* end font color */
 
 /* FontWight */

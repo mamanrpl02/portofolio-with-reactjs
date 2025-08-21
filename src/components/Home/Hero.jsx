@@ -4,7 +4,7 @@ export default function Hero() {
       <div className="container-hero">
         {/* ✅ perbaikan nama class */}
         <div className="profile-mobile">
-          <img src="/img/hero2.png" alt="manzweb" />
+          <img src="/img/profile-mobile.png" alt="manzweb" />
           <div className="status">
             <span className="animasi-lingkaran" />
             <p>Available for work</p>
