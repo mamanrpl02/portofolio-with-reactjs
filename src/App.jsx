@@ -1,9 +1,9 @@
-// App.jsx
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Sosmed from "./pages/Sosmed";
+import Cursor from "./components/Cursor"; // import cursor
 
 function ScrollToHash() {
   const location = useLocation();
@@ -22,12 +22,15 @@ function ScrollToHash() {
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/social-media" element={<Sosmed />} />
-    </Routes>
+    <>
+      <Cursor />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/social-media" element={<Sosmed />} />
+      </Routes>
+    </>
   );
 }
 
