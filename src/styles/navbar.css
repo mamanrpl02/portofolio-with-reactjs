@@ -1,0 +1,100 @@
+.navbar {
+  background-color: transparent;
+  padding: 2rem 8rem;
+  width: 100%;
+  z-index: 100;
+}
+
+.nav-containt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.nav-logo a {
+  text-decoration: none;
+  color: #c9d1d9;
+  font-family: "Fira Code", monospace;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.nav-items ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-items ul li a {
+  text-decoration: none;
+  color: #c9d1d9;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+
+.nav-items ul li a:hover {
+  color: #fff;
+}
+
+/* Toggle button */
+.menu {
+  display: none;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 1.5rem 4rem;
+  }
+}
+
+@media (max-width: 917px) {
+  .navbar {
+    padding: 1rem 3rem;
+    position: relative;
+    z-index: 1001;
+  }
+
+  .menu {
+    display: block;
+    z-index: 1002;
+    position: relative;
+  }
+
+  .nav-items {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: rgba(13, 23, 32, 0.9);
+    backdrop-filter: blur(40px);
+    padding: 1rem 2rem;
+    margin: 1rem 0;
+    border-radius: 0.8rem;
+    width: 12rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+
+  .nav-items.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-items ul {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .nav-items ul li {
+    text-align: left;
+    font-size: 0.9rem;
+  }
+
+  .nav-items ul li a:hover {
+    color: #3b82f6;
+  }
+}

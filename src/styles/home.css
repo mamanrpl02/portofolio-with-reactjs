@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   /* Warna dasar background lebih gelap */
   background-color: #050608;
@@ -39,48 +44,6 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-/* Navbar */
-.navbar {
-  background-color: transparent;
-  padding: 2rem 8rem;
-  /* position: fixed; */
-  width: 100%;
-  z-index: 100;
-}
-
-.nav-containt {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-}
-
-.nav-logo a {
-  text-decoration: none;
-  color: #c9d1d9;
-  font-family: "Fira Code", monospace;
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-}
-
-.nav-items ul {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-
-.nav-items ul li a {
-  text-decoration: none;
-  color: #c9d1d9;
-  font-weight: 500;
-  font-family: "Poppins", sans-serif;
-}
-
-.nav-items ul li a:hover {
-  color: #fff;
-}
-
 /* Toggle button */
 .menu {
   display: none;
@@ -91,7 +54,11 @@ body {
   display: none;
 }
 
-.containter-hero {
+.hero {
+  width: 100vw;
+}
+
+.container-hero {
   display: flex;
   /* background-color: #0d1117; */
   padding: 0 8rem;
@@ -100,17 +67,17 @@ body {
   align-items: center;
 }
 
-.containter-hero .kiri {
+.container-hero .kiri {
   font-family: "Poppins", sans-serif;
   font-size: 2rem;
   width: 50rem;
 }
 
-.containter-hero .kiri p {
+.container-hero .kiri p {
   font-size: 1rem;
 }
 
-.containter-hero .kiri h1 {
+.container-hero .kiri h1 {
   font-size: 3rem;
   font-weight: 700;
   line-height: 3.3rem;
@@ -680,17 +647,17 @@ body.is-lock {
     padding: 1.5rem 4rem;
   }
 
-  .containter-hero {
+  .container-hero {
     padding: 0 3rem;
     gap: 2rem;
   }
 
-  .containter-hero .kiri {
+  .container-hero .kiri {
     width: 100%;
     font-size: 1.6rem;
   }
 
-  .containter-hero .kiri h1 {
+  .container-hero .kiri h1 {
     font-size: 2.2rem;
     line-height: 2.6rem;
   }
@@ -780,11 +747,11 @@ body.is-lock {
     color: #3b82f6;
   }
 
-  #hero{
+  #hero {
     padding: 4rem 0;
   }
 
-  .containter-hero {
+  .container-hero {
     gap: 5rem;
     display: block;
   }
@@ -798,11 +765,8 @@ body.is-lock {
     border-radius: 5px;
   }
 
-  .hero .containter-hero .kanan {
+  .hero .container-hero .kanan {
     display: none;
-  }
-
-  .hero .containter-hero .kiri { 
   }
 
   /* Default hidden untuk mobile profile */
@@ -827,7 +791,7 @@ body.is-lock {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px; /* jarak antara lingkaran & teks */ 
+    gap: 8px; /* jarak antara lingkaran & teks */
   }
 
   /* Lingkaran hijau animasi */
@@ -878,17 +842,17 @@ body.is-lock {
     padding: 1rem 2rem;
   }
 
-  .containter-hero {
+  .container-hero {
     flex-direction: column;
     /* text-align: center; */
     gap: 2rem;
   }
 
-  .containter-hero .kiri {
+  .container-hero .kiri {
     font-size: 1.4rem;
   }
 
-  .containter-hero img {
+  .container-hero img {
     max-width: 90%;
     height: auto;
   }
@@ -943,12 +907,12 @@ body.is-lock {
     font-size: 1rem;
   }
 
-  .containter-hero .kiri h1 {
+  .container-hero .kiri h1 {
     font-size: 1.8rem;
     line-height: 2.2rem;
   }
 
-  .containter-hero .kiri p {
+  .container-hero .kiri p {
     font-size: 0.9rem;
   }
 

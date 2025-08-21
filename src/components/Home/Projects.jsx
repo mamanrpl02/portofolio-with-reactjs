@@ -1,11 +1,11 @@
  
 export default function Projects() {
   const projectList = [
-    { title: "Project 1", type: "Web", tech: "Laravel" },
-    { title: "Project 2", type: "Web", tech: "React" },
-    { title: "Project 3", type: "Web", tech: "Laravel" },
-    { title: "Project 4", type: "UI/UX", tech: "Figma" },
-    { title: "Project 5", type: "UI/UX", tech: "Figma" },
+    { title: "Project 1", type: "Web", tech: "Laravel", gambar : "fake1.png" },
+    { title: "Project 2", type: "Web", tech: "React", gambar : "fake2.png" },
+    { title: "Project 3", type: "Web", tech: "Laravel", gambar : "fake2.png" },
+    { title: "Project 4", type: "UI/UX", tech: "Figma", gambar : "fake1.png" },
+    { title: "Project 5", type: "UI/UX", tech: "Figma", gambar : "fake2.png" },
   ];
 
   return (
@@ -14,7 +14,7 @@ export default function Projects() {
       <div className="project-container">
         {projectList.map((p, i) => (
           <div key={i} className="project-card">
-            <img src="/fake1.png" alt={`${p.title}-image`} className="project-image" />
+            <img src={`/img/${p.gambar}`} alt={`${p.title}-image`} className="project-image" />
             <div className="content-project">
               <h3 className="c-white-1">{p.title}</h3>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
