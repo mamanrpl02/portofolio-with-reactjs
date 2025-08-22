@@ -24,8 +24,17 @@ export default function Home() {
     <>
       <Navbar />
       <Hero />
-      <AboutSection />
+      <AboutSection
+        text="Find me on social media to learn more about my activities, journey, and background."
+        link="/about"
+        linkLabel="Find Me"
+      />
       <Projects />
+      <AboutSection
+        text="Find me on social media to learn more about my activities, journey, and background."
+        link="/social-media"
+        linkLabel="Find Me"
+      />
       <ContactSection />
       <BuyMe />
     </>

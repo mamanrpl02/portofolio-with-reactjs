@@ -1,7 +1,6 @@
-// Navbar.jsx
 import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { Link as ScrollLink } from "react-scroll";
+import { FiMenu, FiX } from "react-icons/fi"; // ✅ icon react-icons
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,11 +11,9 @@ export default function Navbar() {
 
   const goToContact = () => {
     if (location.pathname === "/") {
-      // kalau lagi di Home, scroll langsung
       const el = document.getElementById("contact");
       if (el) el.scrollIntoView({ behavior: "smooth" });
     } else {
-      // kalau di luar Home, redirect ke Home dengan state
       navigate("/", { state: { scrollTo: "contact" } });
     }
   };
@@ -30,21 +27,15 @@ export default function Navbar() {
 
         <div className={`nav-items ${isOpen ? "active" : ""}`} id="nav-items">
           <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/social-media">Social Media</Link>
-            </li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/social-media">Social Media</Link></li>
             <li>
               <a
                 href="#contact"
                 onClick={(e) => {
-                  e.preventDefault(); // cegah reload bawaan <a>
-                  goToContact(); // pakai fungsi tadi
+                  e.preventDefault();
+                  goToContact();
                 }}
                 className="cursor-pointer"
               >
@@ -54,10 +45,9 @@ export default function Navbar() {
           </ul>
         </div>
 
-        <div className="menu" onClick={toggleMenu}>
-          <span className="material-symbols-outlined">
-            {isOpen ? "close" : "menu"}
-          </span>
+        {/* ✅ icon pakai react-icons */}
+        <div className="menu" onClick={toggleMenu} style={{ cursor: "pointer" }}>
+          {isOpen ? <FiX size={28} color="white" /> : <FiMenu size={28} color="white" />}
         </div>
       </div>
     </nav>

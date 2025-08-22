@@ -5,14 +5,13 @@ export default function AboutIntro() {
         <h1>
           Call me Ma<span>man</span>
         </h1>
+        <div className="paragraft">
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto
-          expedita facilis fugit repudiandae impedit nam quos aperiam atque
-          provident perferendis. Lorem ipsum dolor sit amet consectetur,
-          Lorem, ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor
-          sit amet consectetur adipisicing elit. Iusto expedita facilis fugit
-          repudiandae impedit nam quos aperiam atque provident perferendis.
-        </p>
+          I am a passionate 2025 vocational school graduate ready to make a
+          positive impact in the digital world. <span>I am eager to learn</span>,
+          collaborate, and apply my skills to innovative projects.
+          </p>
+          </div>
         <a
           target="_blank"
           rel="noopener noreferrer"

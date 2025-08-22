@@ -40,12 +40,16 @@
   color: #c9d1d9;
 }
 
-.hover-white {
+.hover-white{
   transition: all 0.5s ease;
 }
 
 .hover-white:hover {
   color: white;
+}
+
+a .hover {
+
 }
 /* end font color */
 

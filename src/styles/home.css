@@ -174,8 +174,6 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
- 
-
 /* Toggle button */
 .menu {
   display: none;
@@ -214,6 +212,43 @@ body {
   font-weight: 700;
   line-height: 3.3rem;
   padding-bottom: 0.8rem;
+}
+
+.real-text {
+  opacity: 0; /* gak keliatan tapi tetap terbaca translate */
+  position: absolute;
+}
+.animated-text {
+  position: relative;
+  z-index: 1;
+}
+
+.word {
+  white-space: nowrap; /* kata tetap utuh */
+  display: inline-block;
+  margin-right: 0.4em; /* ✅ bikin jarak antar kata */
+}
+
+.hover-pair {
+  display: inline-block;
+  font: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  transition: color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  color: #888;
+  transform-origin: center;
+}
+
+/* Warna permanen */
+.hover-pair.hovered {
+  color: #3b82f6;
+}
+
+/* Efek scale hanya saat hover */
+.hover-pair:hover {
+  color: #034aff;
+  transform: scale(1.2);
 }
 
 /* Container frame */
@@ -275,7 +310,7 @@ body {
   padding-top: 1.5rem;
   /* border-top: 1px solid rgba(255, 255, 255, 0.468);
   border-bottom: 1px solid rgba(255, 255, 255, 0.468); */
-  transform: skewY(-2deg);
+  transform: skewY(-2.5deg);
   background-color: rgb(13, 17, 23);
   box-shadow: 
     /* Bayangan di bawah */ 0 8px 10px rgba(0, 0, 0, 0.5),
@@ -287,8 +322,6 @@ body {
 .about-container {
   padding: 2rem 8rem;
   width: 90%;
-  margin: 0 auto;
-  /* transform: skewY(1deg); */
 }
 
 .about-container p {
@@ -563,7 +596,7 @@ textarea:focus {
 
 /*  */
 
-/*  */ 
+/*  */
 
 /* =========================================
    RESPONSIVE FIXES (Media Queries)

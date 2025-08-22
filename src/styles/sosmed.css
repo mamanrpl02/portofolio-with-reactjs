@@ -42,13 +42,7 @@ body {
   display: flex;
   flex-direction: column; /* biar section bertumpuk vertikal */
   align-items: stretch; /* biar section isi full */
-}
-
-/* Toggle button */
-.menu {
-  display: none;
-  cursor: pointer;
-}
+} 
 
 #manzweb-sosmed {
   padding: 2rem 8rem;
