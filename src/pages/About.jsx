@@ -6,6 +6,7 @@ import AboutIntro from "../components/About/AboutIntro";
 import Education from "../components/About/Education";
 import Experience from "../components/About/Experience";
 import Skills from "../components/About/Skills";
+import CertificateSection from "../components/About/CertificateSection";
 import SoftSkills from "../components/About/SoftSkills";
 import BuyMe from "../components/BuyMe";
 
@@ -20,6 +21,7 @@ export default function About() {
           <Experience />
           <Skills />
           <SoftSkills />
+          <CertificateSection />
         </div>
       </section>
       <BuyMe />

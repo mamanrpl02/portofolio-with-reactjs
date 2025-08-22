@@ -105,13 +105,13 @@ body {
     0 -16px 20px rgba(0, 0, 0, 0.4), 0 -24px 30px rgba(0, 0, 0, 0.3);
 }
 
-.point-hover li p:hover {
-  transition: all 0.3s ease;
+.point-hover li p {
+  transition: all 0.3s;
   cursor: pointer;
 }
 .point-hover li p:hover {
   color: white;
-  font-weight: 500;
+  translate: 0 -3px;
 }
 
 /* Details about section end */
@@ -123,23 +123,16 @@ body {
   justify-content: space-between;
 }
 .detail-container .education-contain .edu-flex .kiri {
-  width: 70%;
+  width: 90%;
+  letter-spacing: 0.5px;
 }
-.detail-container .education-contain .edu-flex .kanan a {
+/* .detail-container .education-contain .edu-flex .kanan a {
   color: #c9d1d9;
   font-weight: 500;
-}
+} */
 .detail-container .education-contain .edu-flex .kiri ul {
   padding-left: 1rem;
-}
-
-.hover-white {
-  transition: all 0.5s ease;
-}
-
-.hover-white:hover {
-  color: white;
-}
+} 
 
 .hover-biru {
   transition: all 0.3s ease;
@@ -148,6 +141,8 @@ body {
 .hover-biru:hover {
   color: #3b82f6;
   font-weight: 700;
+  transform: translateY(-2px);
+
 }
 
 /* magang inovindo end */

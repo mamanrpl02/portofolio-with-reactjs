@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "../../styles/about.css";
 
 export default function Experience() {
   const [openModal, setOpenModal] = useState(null);
@@ -40,20 +39,22 @@ export default function Experience() {
           <ul className="ml-2rm point-hover">
             <li>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dignissimos quisquam deleniti harum?
+                Terpilih mewakili sekolah di tingkat kecamatan sebagai anggota
+                Paskibraka, yang menunjukkan kemampuan leadership dan tanggung
+                jawab yang tinggi.
               </p>
             </li>
             <li>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Repellendus, ad.
+                Berpartisipasi aktif dalam pelatihan intensif yang mengasah
+                disiplin dan ketahanan fisik, kunci keberhasilan dalam
+                menjalankan tugas.
               </p>
             </li>
             <li>
               <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Accusamus possimus tempore dignissimos est aliquid?
+                Berperan penting dalam upacara HUT RI ke-78 sebagai pengibar
+                bendera, komitmen pada tugas yang diberikan.
               </p>
             </li>
           </ul>
@@ -83,20 +84,19 @@ export default function Experience() {
           <ul className="ml-2rm point-hover">
             <li>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dignissimos quisquam deleniti harum?
+                Belajar Menyesuaikan Diri dengan Lingkungan Kerja Profesional
               </p>
             </li>
             <li>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos,
-                animi excepturi? Repellat, iste.
+                Bekerja dengan target harian, belajar mengelola waktu dan
+                menyelesaikan tugas tepat waktu sesuai arahan mentor.
               </p>
             </li>
             <li>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe
-                quibusdam distinctio nobis, suscipit beatae in.
+                Mengikuti briefing pagi dan sore setiap hari, melatih
+                kedisiplinan dan komunikasi internal secara konsisten.
               </p>
             </li>
           </ul>
@@ -126,20 +126,20 @@ export default function Experience() {
           <ul className="ml-2rm point-hover">
             <li>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dignissimos quisquam deleniti harum?
+                Mendapatkan pengalaman soft skills penting seperti komunikasi
+                profesional, tanggung jawab kerja, dan etika kerja industri.
               </p>
             </li>
             <li>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos,
-                animi excepturi? Repellat, iste.
+                Mengembangkan kemampuan problem solving dengan menangani kendala
+                teknis dan koordinasi saat pelatihan berlangsung.
               </p>
             </li>
             <li>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe
-                quibusdam distinctio nobis, suscipit beatae in.
+                Mengembangkan kemampuan kerja tim melalui kolaborasi dengan
+                berbagai pihak dalam mendukung kegiatan magang.
               </p>
             </li>
           </ul>

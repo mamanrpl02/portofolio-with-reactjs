@@ -12,23 +12,32 @@ export default function Education() {
           <ul className="point-hover">
             <li>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing. Lorem ipsum
-                dolor sit amet consectetur adipisicing elit. Laboriosam?
+                Completed a one-month Character Building Program in 10th grade
+                in collaboration with the Indonesian National Armed Forces
+                (TNI), effectively developing discipline, responsibility, and
+                leadership skills.
               </p>
             </li>
             <li>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing. Lorem ipsum
-                dolor sit amet consectetur adipisicing elit. Laboriosam?
+                Elected as Class President for two consecutive years (11th and
+                12th grade), responsible for managing class coordination,
+                communication with teachers, and fostering cohesion and
+                discipline among peers.
+              </p>
+            </li>
+            <li>
+              <p>
+                Led a team in a system development project as part of a
+                collaboration program between the RPL (Software Engineering)
+                department and an industry partner. Responsible for managing the
+                team and acting as the team's representative in all interactions
+                with the mentor.
               </p>
             </li>
           </ul>
         </div>
-        <div className="kanan">
-          <a href="#" className="hover-white">
-            Subang, ID / May 2025
-          </a>
-        </div>
+       
       </div>
     </div>
   );
