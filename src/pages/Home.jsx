@@ -25,9 +25,9 @@ export default function Home() {
       <Navbar />
       <Hero />
       <AboutSection
-        text="Find me on social media to learn more about my activities, journey, and background."
+        text="Learn more about my background and experiences as a Vocational High School graduate."
         link="/about"
-        linkLabel="Find Me"
+        linkLabel="Get to Know Me..."
       />
       <Projects />
       <AboutSection

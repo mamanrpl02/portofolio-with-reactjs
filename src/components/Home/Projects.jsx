@@ -1,11 +1,25 @@
- 
 export default function Projects() {
   const projectList = [
-    { title: "Project 1", type: "Web", tech: "Laravel", gambar : "fake1.png" },
-    { title: "Project 2", type: "Web", tech: "React", gambar : "fake2.png" },
-    { title: "Project 3", type: "Web", tech: "Laravel", gambar : "fake2.png" },
-    { title: "Project 4", type: "UI/UX", tech: "Figma", gambar : "fake1.png" },
-    { title: "Project 5", type: "UI/UX", tech: "Figma", gambar : "fake2.png" },
+    {
+      title: "SIMKU",
+      information:
+        "Team project during the Final Year Summative Assessment, developing a class financial management web application for savings and class funds, refined with an attendance system to replace manual record-keep",
+      type: "Web",
+      typeInform: "Web Manajement",
+      tech: "Laravel",
+      techInform: "Tech",
+      gambar: "fake1.png",
+    },
+    {
+      title: "TertibSMK",
+      information:
+        "a personal project in designing a web app for a plan to create a system for a school",
+      type: "UI/UX",
+      typeInform: "Web Design",
+      tech: "Laravel",
+      techInform: "Tech",
+      gambar: "fake1.png",
+    },
   ];
 
   return (
@@ -14,18 +28,22 @@ export default function Projects() {
       <div className="project-container">
         {projectList.map((p, i) => (
           <div key={i} className="project-card">
-            <img src={`/img/${p.gambar}`} alt={`${p.title}-image`} className="project-image" />
+            <img
+              src={`/img/${p.gambar}`}
+              alt={`${p.title}-image`}
+              className="project-image"
+            />
             <div className="content-project">
               <h3 className="c-white-1">{p.title}</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <p>{p.information}</p>
               <div className="desk-project">
                 <div className="type item">
                   <h4>{p.type}</h4>
-                  <p>{p.type} project.</p>
+                  <p>{p.typeInform}</p>
                 </div>
                 <div className="tech item">
                   <h4>{p.tech}</h4>
-                  <p>Tech</p>
+                  <p>{p.techInform}</p>
                 </div>
               </div>
             </div>

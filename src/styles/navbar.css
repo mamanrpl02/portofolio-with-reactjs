@@ -61,7 +61,7 @@
 
 @media (max-width: 917px) {
   .navbar {
-    padding: 1rem 3rem;
+    padding: 0rem 3rem;
     position: relative;
     z-index: 1001;
   }
@@ -163,3 +163,4 @@
   }
  
 }
+ 

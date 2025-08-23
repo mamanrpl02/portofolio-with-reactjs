@@ -431,10 +431,7 @@ body.is-lock {
 /* ======================== */
 /*  Mobile kecil (max-width: 480px) */
 /* ======================== */
-@media (max-width: 480px) {
-  .navbar {
-    padding: 1rem;
-  }
+@media (max-width: 480px) { 
 
   #manzweb-sosmed {
     padding: 1rem;

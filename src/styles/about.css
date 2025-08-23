@@ -39,8 +39,7 @@ body {
       ); /* Mengatur ukuran untuk setiap lapisan background */
   background-size: 16px 16px, 100vw 100vh, 100vw 100vh, 100vw 100vh; /* Memastikan background tetap saat halaman digulir */
   background-attachment: fixed; /* Warna teks */
-  color: #c9d1d9;
-  font-family: "Poppins", sans-serif;
+  color: #c9d1d9; 
   padding-bottom: 9rem;
 }
 /* About Hero*/

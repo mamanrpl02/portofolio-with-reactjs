@@ -1,8 +1,7 @@
 import { useRef, useEffect } from "react";
 
 export default function Hero() {
-  const text =
-    "Vocational High School Graduates Full of Spirit, Ready to Work and Innovate";
+  const text = "From SMK to Be a Web Dev ";
 
   const h1Ref = useRef(null);
 
@@ -73,15 +72,15 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="item kiri">
+        <div className="kiri">
           <h1 ref={h1Ref}>{splitWords(text)}</h1>
           <p>
-            only vocational school graduates who have a strong passion in the
-            field of technology and are ready to learn and work.
+            I keep learning and building small projects to grow into a
+            professional Web Developer.
           </p>
         </div>
 
-        <div className="item kanan profile-frame">
+        <div className="kanan profile-frame">
           <img
             src="/img/hero2.png"
             alt="manz-web-image"
