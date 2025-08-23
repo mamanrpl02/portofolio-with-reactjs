@@ -52,6 +52,9 @@
   user-select: none;
 }
 
+
+
+
 /* Responsive */
 @media (max-width: 1024px) {
   .navbar {
