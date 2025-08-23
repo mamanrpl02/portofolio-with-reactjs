@@ -1,54 +1,28 @@
-import { useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { FiMenu, FiX } from "react-icons/fi"; // ✅ icon react-icons
+import { useLang } from "../context/LangContext";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const toggleMenu = () => setIsOpen(!isOpen);
-
-  const goToContact = () => {
-    if (location.pathname === "/") {
-      const el = document.getElementById("contact");
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    } else {
-      navigate("/", { state: { scrollTo: "contact" } });
-    }
-  };
+  const { lang, toggleLang } = useLang();
 
   return (
     <nav className="navbar">
       <div className="nav-containt">
         <div className="nav-logo">
-          <a href="#" className="hover-white">Manzweb.my.id</a>
+          <a href="#">Manzweb.my.id</a>
         </div>
 
-        <div className={`nav-items ${isOpen ? "active" : ""}`} id="nav-items">
+        <div className="nav-items">
           <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/social-media">Social Media</Link></li>
-            <li>
-              <a
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  goToContact();
-                }}
-                className="cursor-pointer"
-              >
-                Contact
-              </a>
-            </li>
+            <li><a href="/">{lang === "en" ? "Home" : "Beranda"}</a></li>
+            <li><a href="/about">{lang === "en" ? "About" : "Tentang"}</a></li>
+            <li><a href="/social-media">{lang === "en" ? "Social Media" : "Sosial Media"}</a></li>
+            <li><a href="/#contact">{lang === "en" ? "Contact" : "Kontak"}</a></li>
           </ul>
         </div>
 
-        {/* ✅ icon pakai react-icons */}
-        <div className="menu" onClick={toggleMenu} style={{ cursor: "pointer" }}>
-          {isOpen ? <FiX size={28} color="white" /> : <FiMenu size={28} color="white" />}
-        </div>
+        {/* ✅ Button toggle */}
+        <button onClick={toggleLang} className="btn-translate">
+          {lang === "en" ? "ID" : "EN"}
+        </button>
       </div>
     </nav>
   );

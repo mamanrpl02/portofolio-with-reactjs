@@ -1,57 +1,57 @@
 import { useState } from "react";
+import { useLang } from "../../context/LangContext"; // pastikan path sesuai
+
 
 export default function Experience() {
+  const { lang } = useLang(); // ✅ ambil dari Context
   const [openModal, setOpenModal] = useState(null);
-
   const handleOpen = (modalId) => setOpenModal(modalId);
   const handleClose = () => setOpenModal(null);
 
-  // --- Data pengalaman dipisah ---
+  const experiencesEn = [
+    {
+      id: "paskib",
+      title: "Paskibraka",
+      subtitle: "(Organization)",
+      linkText: "Flag Hoisting Troop for the 78th Indonesian Independence Day",
+      img: "/img/fake1.png",
+      alt: "Paskibraka 78",
+      list: [
+        "Selected to represent the school at the district level as a member of Paskibraka, demonstrating strong leadership and responsibility.",
+        "Actively participated in intensive training that enhanced discipline and physical endurance, essential for successfully carrying out duties.",
+        "Played a vital role in the 78th Independence Day ceremony as a flag hoister, showing full commitment to the assigned task.",
+      ],
+    },
+    {
+      id: "inovindo",
+      title: "PT. INOVINDO DIGITAL MEDIA",
+      subtitle: "(Internship)",
+      linkText: "Web Developer Intern, Bandung, Sept 10 - Dec 11, 2023",
+      img: "/img/fake2.png",
+      alt: "Inovindo Internship",
+      list: [
+        "Learned how to adapt to a professional work environment.",
+        "Worked with daily targets, learning time management and completing tasks on schedule under mentor guidance.",
+        "Attended daily morning and evening briefings, fostering discipline and consistent internal communication.",
+      ],
+    },
+    {
+      id: "fathforce",
+      title: "PT. FATH SINERGY GROUP",
+      subtitle: "(Online Internship at School)",
+      linkText: "UI/UX Designer Intern, Bandung, Sept 10 - Dec 11, 2023",
+      img: "/img/fake1.png",
+      alt: "Fathforce Internship",
+      list: [
+        "Gained essential soft skills such as professional communication, work responsibility, and industry work ethics.",
+        "Enhanced problem-solving skills by addressing technical challenges and coordination issues during the program.",
+        "Improved teamwork skills through collaboration with various parties in supporting the internship activities.",
+      ],
+    },
+  ];
 
-  const experiences = [
-  {
-    id: "paskib",
-    title: "Paskibraka",
-    subtitle: "(Organization)",
-    linkText: "Flag Hoisting Troop for the 78th Indonesian Independence Day",
-    img: "/img/fake1.png",
-    alt: "Paskibraka 78",
-    list: [
-      "Selected to represent the school at the district level as a member of Paskibraka, demonstrating strong leadership and responsibility.",
-      "Actively participated in intensive training that enhanced discipline and physical endurance, essential for successfully carrying out duties.",
-      "Played a vital role in the 78th Independence Day ceremony as a flag hoister, showing full commitment to the assigned task.",
-    ],
-  },
-  {
-    id: "inovindo",
-    title: "PT. INOVINDO DIGITAL MEDIA",
-    subtitle: "(Internship)",
-    linkText: "Web Developer Intern, Bandung, Sept 10 - Dec 11, 2023",
-    img: "/img/fake2.png",
-    alt: "Inovindo Internship",
-    list: [
-      "Learned how to adapt to a professional work environment.",
-      "Worked with daily targets, learning time management and completing tasks on schedule under mentor guidance.",
-      "Attended daily morning and evening briefings, fostering discipline and consistent internal communication.",
-    ],
-  },
-  {
-    id: "fathforce",
-    title: "PT. FATH SINERGY GROUP",
-    subtitle: "(Online Internship at School)",
-    linkText: "UI/UX Designer Intern, Bandung, Sept 10 - Dec 11, 2023",
-    img: "/img/fake1.png",
-    alt: "Fathforce Internship",
-    list: [
-      "Gained essential soft skills such as professional communication, work responsibility, and industry work ethics.",
-      "Enhanced problem-solving skills by addressing technical challenges and coordination issues during the program.",
-      "Improved teamwork skills through collaboration with various parties in supporting the internship activities.",
-    ],
-  },
-];
-
-
-  const experiencesEng = [
+  // --- Data pengalaman bahasa Indonesia ---
+  const experiencesId = [
     {
       id: "paskib",
       title: "Paskibraka",
@@ -73,7 +73,7 @@ export default function Experience() {
       img: "/img/fake2.png",
       alt: "Magang Inovindo",
       list: [
-        "Belajar Menyesuaikan Diri dengan Lingkungan Kerja Profesional",
+        "Belajar menyesuaikan diri dengan lingkungan kerja profesional.",
         "Bekerja dengan target harian, belajar mengelola waktu dan menyelesaikan tugas tepat waktu sesuai arahan mentor.",
         "Mengikuti briefing pagi dan sore setiap hari, melatih kedisiplinan dan komunikasi internal secara konsisten.",
       ],
@@ -93,13 +93,16 @@ export default function Experience() {
     },
   ];
 
+  const experiences = lang === "en" ? experiencesEn : experiencesId;
+
   return (
     <div className="experiance-contain mt-2rm">
       <div className="title-section">
-        <h1 className="c-white-1">Experience</h1>
+        <h1 className="c-white-1">
+          {lang === "en" ? "Experience" : "Pengalaman"}
+        </h1>
       </div>
 
-      {/* Loop pengalaman */}
       {experiences.map((exp) => (
         <div key={exp.id} className="experience-section pt-1rm">
           <div className="experience-title">
