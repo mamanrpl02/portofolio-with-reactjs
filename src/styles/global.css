@@ -49,7 +49,6 @@
   transform: translateY(-5px);
 }
 
-
 /* end font color */
 
 /* FontWight */
@@ -190,4 +189,110 @@
 
 .a-underline {
   text-decoration: underline;
+}
+
+.notfound-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.illustration {
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.notfound-title {
+  font-size: 80px;
+  font-weight: 700;
+  margin: 10px 0;
+  color: #3b82f6;
+}
+
+.notfound-text {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.notfound-subtext {
+  font-size: 16px;
+  margin-bottom: 24px;
+  color: #ddd;
+}
+
+.notfound-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #3b82f6;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.notfound-btn:hover {
+  background: #0544aa;
+}
+
+.illustration img {
+  height: 20rem;
+}
+
+.footer {
+  width: 100%;
+  background: rgb(1, 10, 24);
+  color: #fff; 
+  font-family: "Noto Sans Duployan", sans-serif;
+  padding: 3rem 8rem;
+  padding-bottom: 8rem;
+  box-shadow: 
+    /* Bayangan di bawah */ 0 8px 10px rgba(0, 0, 0, 0.5),
+    0 16px 20px rgba(0, 0, 0, 0.4), 0 24px 30px rgba(0, 0, 0, 0.3),
+    /* Bayangan di atas (dengan offset negatif) */ 0 -8px 10px rgba(0, 0, 0, 0.5),
+    0 -16px 20px rgba(0, 0, 0, 0.4), 0 -24px 30px rgba(0, 0, 0, 0.3);
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.footer-links a {
+  font-family: "Noto Sans Duployan", sans-serif;
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+@media (max-width: 768px){
+  .footer{
+    padding: 3rem 2rem;
+    padding-bottom: 8rem;
+  }
+  
 }

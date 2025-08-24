@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLang } from "../../context/LangContext"; // pastikan LangContext tersedia
 
 export default function ContactSection() {
   const [status, setStatus] = useState("");
@@ -15,31 +16,71 @@ export default function ContactSection() {
     }, 400);
   };
 
+  const { lang } = useLang();
+
+  // Objek teks untuk translate
+  const text = {
+    en: {
+      sectionTitle: "Contact Me",
+      labelName: "Enter Your Name",
+      placeholderName: "Enter your name",
+      labelEmail: "Enter Your Email",
+      placeholderEmail: "Enter your email",
+      labelMessage: "Enter Your Message",
+      placeholderMessage: "Enter your message (min 10 characters)",
+      button: "Send Message",
+      modalSuccess: "Success",
+      modalError: "Error",
+      modalClose: "Close",
+    },
+    id: {
+      sectionTitle: "Kontak Saya",
+      labelName: "Masukkan Nama Anda",
+      placeholderName: "Masukkan nama Anda",
+      labelEmail: "Masukkan Email Anda",
+      placeholderEmail: "Masukkan email Anda",
+      labelMessage: "Masukkan Pesan Anda",
+      placeholderMessage: "Masukkan pesan Anda (minimal 10 karakter)",
+      button: "Kirim Pesan",
+      modalSuccess: "Berhasil",
+      modalError: "Terjadi Kesalahan",
+      modalClose: "Tutup",
+    },
+  };
+
+  const t = text[lang]; // teks sesuai bahasa aktif
+
   const validateForm = (formData) => {
     const name = formData.get("name")?.trim();
     const email = formData.get("email")?.trim();
     const message = formData.get("message")?.trim();
 
     if (!name || !email || !message) {
-      return "All fields are required. Please fill in every input.";
+      return lang === "en"
+        ? "All fields are required. Please fill in every input."
+        : "Semua kolom wajib diisi. Mohon lengkapi semua input.";
     }
 
-    // Nama minimal 3 karakter, maksimal 20 karakter
     if (name.length < 3 || name.length > 20) {
-      return "Name must be between 3 and 20 characters.";
+      return lang === "en"
+        ? "Name must be between 3 and 20 characters."
+        : "Nama harus antara 3 sampai 20 karakter.";
     }
 
-    // Pesan minimal 200 karakter
     if (message.length < 10) {
-      return "Message must be at least 10 characters long.";
+      return lang === "en"
+        ? "Message must be at least 10 characters long."
+        : "Pesan harus minimal 10 karakter.";
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return "Please enter a valid email address.";
+      return lang === "en"
+        ? "Please enter a valid email address."
+        : "Silakan masukkan alamat email yang valid.";
     }
 
-    return null; // Valid
+    return null;
   };
 
   const handleSubmit = async (e) => {
@@ -61,27 +102,34 @@ export default function ContactSection() {
     try {
       const response = await fetch(
         "https://script.google.com/macros/s/AKfycbwP-UVaNVwUMxU7_CNAd8HdhhzHZleHrgiwXUJJeC7WoRbdM5KAAWshznM4ib3kbFfb/exec",
-        {
-          method: "POST",
-          body: formData,
-        }
+        { method: "POST", body: formData }
       );
 
       if (response.ok) {
-        setStatus("Your message has been sent successfully.");
+        setStatus(
+          lang === "en"
+            ? "Your message has been sent successfully."
+            : "Pesan Anda berhasil dikirim."
+        );
         setIsSuccess(true);
         setShowModal(true);
         form.reset();
       } else {
         setStatus(
-          "An error occurred while sending your message. Please try again."
+          lang === "en"
+            ? "An error occurred while sending your message. Please try again."
+            : "Terjadi kesalahan saat mengirim pesan. Silakan coba lagi."
         );
         setIsSuccess(false);
         setShowModal(true);
       }
     } catch (error) {
       console.error("Error:", error);
-      setStatus("An unexpected error occurred. Please check your connection.");
+      setStatus(
+        lang === "en"
+          ? "An unexpected error occurred. Please check your connection."
+          : "Terjadi kesalahan tak terduga. Periksa koneksi Anda."
+      );
       setIsSuccess(false);
       setShowModal(true);
     } finally {
@@ -92,49 +140,48 @@ export default function ContactSection() {
   return (
     <section id="contact">
       <div className="contact-container">
-        <h2 className="c-white-2">Contact Me</h2>
+        <h2 className="c-white-2">{t.sectionTitle}</h2>
 
         <form onSubmit={handleSubmit}>
           <div className="contact-info">
             <div className="input-name">
-              <label htmlFor="name">Enter Your Name</label>
+              <label htmlFor="name">{t.labelName}</label>
               <input
                 type="text"
                 id="name"
                 name="name"
-                placeholder="Enter your name"
+                placeholder={t.placeholderName}
               />
             </div>
             <div className="input-email">
-              <label htmlFor="email">Enter Your Email</label>
+              <label htmlFor="email">{t.labelEmail}</label>
               <input
                 type="text"
                 id="email"
                 name="email"
-                placeholder="Enter your email"
+                placeholder={t.placeholderEmail}
               />
             </div>
           </div>
 
           <div className="input-message">
-            <label htmlFor="message">Enter Your Message</label>
+            <label htmlFor="message">{t.labelMessage}</label>
             <textarea
               id="message"
               name="message"
-              placeholder="Enter your message (min 10 characters)"
+              placeholder={t.placeholderMessage}
               rows="6"
             ></textarea>
           </div>
 
           <div className="input-submit">
             <button type="submit" className="btn-submit" disabled={loading}>
-              {loading ? <span className="spinner"></span> : "Send Message"}
+              {loading ? <span className="spinner"></span> : t.button}
             </button>
           </div>
         </form>
       </div>
 
-      {/* Modal */}
       {showModal && (
         <div
           className={`modal-overlay ${closing ? "fade-out" : "fade-in"}`}
@@ -146,10 +193,12 @@ export default function ContactSection() {
             }`}
             onClick={(e) => e.stopPropagation()}
           >
-            <h3 className="modal-title">{isSuccess ? "Success" : "Error"}</h3>
+            <h3 className="modal-title">
+              {isSuccess ? t.modalSuccess : t.modalError}
+            </h3>
             <p className="modal-message">{status}</p>
             <button className="modal-button" onClick={closeModal}>
-              Close
+              {t.modalClose}
             </button>
           </div>
         </div>

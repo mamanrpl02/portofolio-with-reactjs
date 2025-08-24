@@ -6,16 +6,20 @@ export default function AboutIntro() {
   const textEn = {
     callMe: "Call me Ma",
     highlighted: "man",
-    paragraph: `I am a passionate 2025 vocational school graduate ready to make a
-      positive impact in the digital world. I am eager to learn, collaborate, and apply my skills to innovative projects.`,
+    p1: `I am a passionate 2025 vocational school graduate ready to make a
+      positive impact in the digital world., collaborate, and apply my skills to innovative projects.`,
+    span: ` I am eager to learn`,
+    p2: `, collaborate, and apply my skills to innovative projects.`,
     linkedin: "Connect on Linkedin",
   };
 
   const textId = {
     callMe: "Panggil saya Ma",
     highlighted: "man",
-    paragraph: `Saya lulusan SMK 2025 yang penuh semangat, siap memberikan
+    p1: `Saya lulusan SMK 2025 yang penuh semangat, siap memberikan
       dampak positif di dunia digital. Saya ingin belajar, berkolaborasi, dan mengaplikasikan kemampuan saya pada proyek-proyek inovatif.`,
+    span: ` Saya ingin belajar`,
+    p2: `,  dan mengaplikasikan kemampuan saya pada proyek-proyek inovatif.`,
     linkedin: "Terhubung di Linkedin",
   };
 
@@ -29,7 +33,7 @@ export default function AboutIntro() {
           <span>{text.highlighted}</span>
         </h1>
         <div className="paragraft">
-          <p>{text.paragraph}</p>
+          <p>{text.p1}<span>{text.span}</span>{text.p2}</p>
         </div>
         <a
           target="_blank"

@@ -27,6 +27,7 @@
   display: flex;
   gap: 2rem;
   list-style: none;
+  align-items: center;
 }
 
 .nav-items ul li a {
@@ -34,6 +35,11 @@
   color: #c9d1d9;
   font-weight: 500;
   font-family: "Poppins", sans-serif;
+  align-items: center;
+  text-align: center;
+  display: block; /* membuat a mengisi seluruh li */
+  width: 100%;
+  text-align: center; /* sekarang akan benar-benar di tengah */
 }
 
 .nav-items ul li a:hover {
@@ -52,69 +58,121 @@
   user-select: none;
 }
 
-
-
-
-/* Responsive */
-@media (max-width: 1024px) {
-  .navbar {
-    padding: 1.5rem 4rem;
-  }
+/* Style modern untuk tombol translate */
+.btn-translate {
+  all: unset; /* reset semua style bawaan button */
+  position: relative;
+  padding: 0.3rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 10px; /* bulat penuh */
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.5),
+    0 6px 20px rgba(99, 102, 241, 0.4);
+  border: 1px solid #3b82f6;
 }
 
-@media (max-width: 917px) {
-  .navbar {
-    padding: 0rem 3rem;
-    position: relative;
-    z-index: 1001;
-  }
+.btn-translate:hover {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6),
+    0 10px 30px rgba(99, 102, 241, 0.5);
+}
 
-  .menu {
-    display: block;
-    z-index: 1002;
-    position: relative;
-  }
+/* Efek ripple saat diklik */
+.btn-translate::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease, opacity 0.6s ease;
+  pointer-events: none;
+}
 
-  .nav-items {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: rgba(13, 23, 32, 0.9);
-    backdrop-filter: blur(40px);
-    padding: 1rem 2rem;
-    margin: 1rem 0;
-    border-radius: 0.8rem;
-    width: 12rem;
+.btn-translate:active::after {
+  width: 200px;
+  height: 200px;
+  opacity: 0;
+  transition: 0s;
+}
+
+/* Overlay lingkaran */
+.overlay-splash {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 3000;
+}
+
+/* Overlay text */
+.overlay-text {
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  pointer-events: none;
+  z-index: 3001;
+  text-align: center;
+  max-width: 90vw; /* batas maksimal lebar teks */
+  word-wrap: break-word; /* pecah teks jika terlalu panjang */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Responsive */
+@media (max-width: 1024px) { 
+  /* Overlay */
+  #overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 900;
     opacity: 0;
     visibility: hidden;
+    transition: opacity 0.3s ease;
+  }
+  /* overlay hitam di belakang menu */
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6); /* semi-transparan */
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000; /* di bawah nav-items yang z-index 1003 */
     transition: opacity 0.4s ease, visibility 0.4s ease;
   }
 
-  .nav-items.active {
+  .menu-overlay.active {
     opacity: 1;
     visibility: visible;
   }
-
-  .nav-items ul {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .nav-items ul li {
-    text-align: left;
-    font-size: 0.9rem;
-  }
-
-  .nav-items ul li a:hover {
-    color: #3b82f6;
-  }
-}
-
+} 
 /* Tablet Portrait (≤917px – termasuk mobile navbar) */
-@media (max-width: 917px) { 
-
+@media (max-width: 917px) {
   .navbar {
-    padding: 1rem 3rem;
+    padding: 1rem 8rem;
     position: relative;
     z-index: 1001;
   }
@@ -151,6 +209,7 @@
   .nav-items ul {
     flex-direction: column;
     gap: 1.5rem;
+    align-items: start;
   }
 
   .nav-items ul li {
@@ -164,6 +223,21 @@
   .nav-items ul li a:hover {
     color: #3b82f6;
   }
- 
 }
- 
+/* Responsive di bawah 768px (tablet & HP besar) */
+@media (max-width: 768px) {
+  .navbar{
+    padding: 2rem;
+  }
+}
+
+
+/* Responsive di bawah 576px (HP kecil) */
+@media (max-width: 576px) {
+  .navbar{
+    padding: 1rem;
+  }
+  .nav-logo a {
+    font-size: 1rem;
+  } 
+}

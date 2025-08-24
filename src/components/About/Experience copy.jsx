@@ -1,26 +1,19 @@
 import { useState } from "react";
-import { useLang } from "../../context/LangContext";
+import { useLang } from "../../context/LangContext"; // pastikan path sesuai
 
 export default function Experience() {
-  const { lang } = useLang();
+  const { lang } = useLang(); // ✅ ambil dari Context
   const [openModal, setOpenModal] = useState(null);
-  const [currentImgIndex, setCurrentImgIndex] = useState(0);
-
-  const handleOpen = (modalId, index = 0) => {
-    setOpenModal(modalId);
-    setCurrentImgIndex(index);
-  };
-
+  const handleOpen = (modalId) => setOpenModal(modalId);
   const handleClose = () => setOpenModal(null);
 
-  // contoh data, yang penting `img` array
   const experiencesEn = [
     {
       id: "paskib",
       title: "Paskibraka",
       subtitle: "(Organization)",
       linkText: "Flag Hoisting Troop for the 78th Indonesian Independence Day",
-      img: ["/img/fake1.png"],
+      img: "/img/fake1.png",
       alt: "Paskibraka 78",
       list: [
         "Selected to represent the school at the district level as a member of Paskibraka, demonstrating strong leadership and responsibility.",
@@ -33,7 +26,7 @@ export default function Experience() {
       title: "PT. INOVINDO DIGITAL MEDIA",
       subtitle: "(Internship)",
       linkText: "Web Developer Intern, Bandung, Sept 10 - Dec 11, 2023",
-      img: ["/img/fake2.png"],
+      img: "/img/fake2.png",
       alt: "Inovindo Internship",
       list: [
         "Learned how to adapt to a professional work environment.",
@@ -46,7 +39,7 @@ export default function Experience() {
       title: "PT. INOVINDO DIGITAL MEDIA",
       subtitle: "(Internship)",
       linkText: "Web Developer Intern, Bandung, Sept 10 - Dec 11, 2023",
-      img: ["/img/fake2.png"],
+      img: "/img/fake2.png",
       alt: "Inovindo Internship",
       list: [
         "Learned how to adapt to a professional work environment.",
@@ -59,7 +52,7 @@ export default function Experience() {
       title: "PT. FATH SINERGY GROUP",
       subtitle: "(Online Internship at School)",
       linkText: "UI/UX Designer Intern, Bandung, Sept 10 - Dec 11, 2023",
-      img: ["/img/fake1.png"],
+      img: "/img/fake1.png",
       alt: "Fathforce Internship",
       list: [
         "Gained essential soft skills such as professional communication, work responsibility, and industry work ethics.",
@@ -73,7 +66,7 @@ export default function Experience() {
       subtitle: "(Organization)",
       linkText:
         "17th August Celebration Committee (80th Independence Day), Village Pusakaratu RT(09)",
-      img: ["/img/fake1.png"],
+      img: "/img/fake1.png",
       alt: "80th Independence Day Celebration",
       list: [
         "Contributed to the event and logistics division, supporting the smooth execution of the entire program.",
@@ -92,7 +85,7 @@ export default function Experience() {
       title: "Paskibraka",
       subtitle: "(Organisasi)",
       linkText: "Pasukan Pengibar Bendera Hut RI 78",
-      img: ["/img/fake1.png"],
+      img: "/img/fake1.png",
       alt: "Paskibraka 78",
       list: [
         "Terpilih mewakili sekolah di tingkat kecamatan sebagai anggota Paskibraka, yang menunjukkan kemampuan leadership dan tanggung jawab yang tinggi.",
@@ -105,7 +98,7 @@ export default function Experience() {
       title: "PT. INOVINDO DIGITAL MEDIA",
       subtitle: "(Magang)",
       linkText: "Web Developer Intern Bandung, 10 Sept - 11 Dec 2023",
-      img: ["/img/fake2.png"],
+      img: "/img/fake2.png",
       alt: "Magang Inovindo",
       list: [
         "Belajar menyesuaikan diri dengan lingkungan kerja profesional.",
@@ -118,7 +111,7 @@ export default function Experience() {
       title: "PT. FATH SINERGY GROUP",
       subtitle: "(Magang Online In School)",
       linkText: "UI/UX Designer Intern Bandung, 10 Sept - 11 Dec 2023",
-      img: ["/img/fake1.png"],
+      img: "/img/fake1.png",
       alt: "Magang Fathforce",
       list: [
         "Mendapatkan pengalaman soft skills penting seperti komunikasi profesional, tanggung jawab kerja, dan etika kerja industri.",
@@ -130,9 +123,8 @@ export default function Experience() {
       id: "panitia-lomba-hut-ri-80",
       title: "Panitia Lomba 17 Agustus",
       subtitle: "(Organisasi)",
-      linkText:
-        "Panitia Lomba 17 Agustus (HUT RI ke-80), Desa Pusakaratu RT(09)",
-      img: ["/img/fake1.png"],
+      linkText: "Panitia Lomba 17 Agustus (HUT RI ke-80), Desa Pusakaratu RT(09)",
+      img: "/img/fake1.png",
       alt: "Kegiatan Lomba HUT RI ke-80",
       list: [
         "Berperan dalam seksi acara dan perlengkapan untuk mendukung jalannya seluruh kegiatan.",
@@ -149,7 +141,9 @@ export default function Experience() {
   return (
     <div className="experiance-contain mt-2rm">
       <div className="title-section">
-        <h1 className="c-white-1">Pengalaman</h1>
+        <h1 className="c-white-1">
+          {lang === "en" ? "Experience" : "Pengalaman"}
+        </h1>
       </div>
 
       {experiences.map((exp) => (
@@ -162,7 +156,7 @@ export default function Experience() {
               href="#"
               onClick={(e) => {
                 e.preventDefault();
-                handleOpen(exp.id, 0);
+                handleOpen(exp.id);
               }}
               className="c-white-2 hover-white a-underline"
             >
@@ -181,44 +175,23 @@ export default function Experience() {
           </div>
         </div>
       ))}
+
       {/* Modal */}
       {openModal && (
         <div className="modal" onClick={handleClose}>
           <span className="close" onClick={handleClose}>
             &times;
           </span>
-
           {experiences
             .filter((exp) => exp.id === openModal)
             .map((exp) => (
-              <div
+              <img
                 key={exp.id}
-                className="modal-inner"
+                className="modal-content"
+                src={exp.img}
+                alt={exp.alt}
                 onClick={(e) => e.stopPropagation()}
-              >
-                {/* gambar utama */}
-                <img
-                  key={currentImgIndex}
-                  className="modal-content fade"
-                  src={exp.img[currentImgIndex]}
-                  alt={exp.alt}
-                />
-
-                {/* thumbnail */}
-                <div className="thumbnails">
-                  {exp.img.map((src, idx) => (
-                    <img
-                      key={idx}
-                      src={src}
-                      alt={`thumb-${idx}`}
-                      className={`thumb ${
-                        currentImgIndex === idx ? "active" : ""
-                      }`}
-                      onClick={() => setCurrentImgIndex(idx)}
-                    />
-                  ))}
-                </div>
-              </div>
+              />
             ))}
         </div>
       )}

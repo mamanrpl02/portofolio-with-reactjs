@@ -1,9 +1,24 @@
 import { useRef, useEffect } from "react";
+import { useLang } from "../../context/LangContext";
 
 export default function Hero() {
-  const text = "From SMK to Be a Web Dev ";
-
+  const { lang } = useLang(); // ambil bahasa
   const h1Ref = useRef(null);
+
+  // Teks bahasa Inggris dan Indonesia
+  const texts = {
+    en: {
+      h1: "From SMK to Be a Web Dev",
+      p: "I keep learning and building small projects to grow into a professional Web Developer.",
+    },
+    id: {
+      h1: "Dari SMK Menjadi Web Developer",
+      p: "Saya terus belajar dan membangun proyek kecil untuk berkembang menjadi Web Developer profesional.",
+    },
+  };
+
+  const text = texts[lang].h1;
+  const paragraph = texts[lang].p;
 
   // Ambil data dari sessionStorage (array index pair yang sudah di-hover)
   const getHoveredPairs = () => {
@@ -27,7 +42,7 @@ export default function Hero() {
       const el = document.querySelector(`[data-id='${id}']`);
       if (el) el.classList.add("hovered");
     });
-  }, []);
+  }, [text]); // update juga saat bahasa berubah
 
   // Split kata jadi pasangan 2 huruf
   const splitWords = (text) => {
@@ -74,10 +89,7 @@ export default function Hero() {
 
         <div className="kiri">
           <h1 ref={h1Ref}>{splitWords(text)}</h1>
-          <p>
-            I keep learning and building small projects to grow into a
-            professional Web Developer.
-          </p>
+          <p>{paragraph}</p>
         </div>
 
         <div className="kanan profile-frame">

@@ -172,6 +172,9 @@ body {
   /* Warna teks */
   color: #c9d1d9;
   font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 /* Toggle button */
@@ -458,16 +461,21 @@ body {
   font-size: 0.9rem;
   letter-spacing: 1px;
 }
-
 #contact {
-  background: #0a0a0a;
-  color: #e5e7eb;
-  padding: 3rem 8rem 10rem 8rem;
-  border-radius: 1rem;
+  background: #0a0a0a; 
+  min-height: 100vh; /* penuh layar */
+  padding: 0 8rem; /* hilangkan padding atas/bawah */
+  border-radius: 0; /* hilangkan jika mau full menempel */
   font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .contact-container {
+  width: 100%;
+  max-width: 800px; /* optional, agar konten tidak terlalu lebar */
   padding: 2rem;
   border-radius: 10px;
   transition: all 0.5s ease;
@@ -561,6 +569,8 @@ textarea:focus {
   left: 0;
   right: 0;
   bottom: 0;
+  margin: 0; /* hapus margin default */
+  padding: 2rem; /* bisa sesuaikan */
   padding: 0 7rem;
   position: fixed;
   margin-bottom: 1rem;
@@ -867,7 +877,6 @@ textarea:focus {
 
 /* Mobile Small (≤480px) */
 @media (max-width: 480px) {
-  
   .nav-logo a {
     font-size: 1rem;
   }

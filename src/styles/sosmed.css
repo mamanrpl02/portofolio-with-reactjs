@@ -34,8 +34,7 @@ body {
   background-size: 16px 16px, 100vw 100vh, 100vw 100vh, 100vw 100vh; /* Memastikan background tetap saat halaman digulir */
   background-attachment: fixed; /* Warna teks */
   color: #c9d1d9;
-  font-family: "Poppins", sans-serif;
-  padding-bottom: 9rem;
+  font-family: "Poppins", sans-serif; 
 }
 
 body {
@@ -392,7 +391,7 @@ body.is-lock {
   }
 
   .buyMe {
-    padding: 1rem 3rem;
+    padding: 1rem 8rem;
   }
 }
 
@@ -426,6 +425,12 @@ body.is-lock {
   .content-buyMe {
     padding: 1rem 1.5rem;
   }
+
+  .buyMe{
+    padding: 0 2rem;
+  }
+
+  
 }
 
 /* ======================== */
