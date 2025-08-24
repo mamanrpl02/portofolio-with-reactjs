@@ -12,7 +12,8 @@ export default function SocialMedia() {
 
   const textId = {
     title: "Temukan saya di media sosial  ",
-    infor: "Pelajari lebih lanjut tentang aktivitas, perjalanan, dan latar belakang saya di:",
+    infor:
+      "Pelajari lebih lanjut tentang aktivitas, perjalanan, dan latar belakang saya di:",
   };
 
   const text = lang === "en" ? textEn : textId;
@@ -21,8 +22,8 @@ export default function SocialMedia() {
     <section id="manzweb-sosmed" className="sosmed-section">
       <div className="sosmed-content">
         <div className="sosmed-title">
-          <h2 className="c-white-1">{ text.title}</h2>
-          <p>{ text.infor}</p>
+          <h2 className="c-white-1">{text.title}</h2>
+          <p>{text.infor}</p>
         </div>
 
         <SosmedItem
@@ -36,9 +37,14 @@ export default function SocialMedia() {
           link="https://www.instagram.com/abdurrahman_730/"
         />
         <SosmedItem
-          name="Tiktok"
+          name="Tiktok Web"
           imgSrc="/logo/manzweb-tiktok.png"
-          link="https://www.tiktok.com/@abdurrahman_730"
+          link="https://www.tiktok.com/@manzweb?is_from_webapp=1&sender_device=pc"
+        />
+        <SosmedItem
+          name="Tiktok Design"
+          imgSrc="/logo/manzweb-tiktok.png"
+          link="https://www.tiktok.com/@manz_str?is_from_webapp=1&sender_device=pc"
         />
         <SosmedItem
           name="Youtube"

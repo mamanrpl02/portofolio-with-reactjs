@@ -33,9 +33,9 @@ export default function Footer() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-          > 
+          >
             {text.link}
-            <FiCornerRightUp size={25} />
+            <FiCornerRightUp size={25} className="icon-top" />
           </a>
         </div>
       </div>

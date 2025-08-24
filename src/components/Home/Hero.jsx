@@ -77,7 +77,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="hero">
+    <section id="hero" className="hero"> 
       <div className="container-hero">
         <div className="profile-mobile">
           <img src="/img/profile-mobile.png" alt="manzweb" />
