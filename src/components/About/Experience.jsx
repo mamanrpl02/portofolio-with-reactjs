@@ -37,20 +37,7 @@ export default function Experience() {
       alt: "Inovindo Internship",
       list: [
         "Learned how to adapt to a professional work environment.",
-        "Worked with daily targets, learning time management and completing tasks on schedule under mentor guidance.",
-        "Attended daily morning and evening briefings, fostering discipline and consistent internal communication.",
-      ],
-    },
-    {
-      id: "inovindo",
-      title: "PT. INOVINDO DIGITAL MEDIA",
-      subtitle: "(Internship)",
-      linkText: "Web Developer Intern, Bandung, Sept 10 - Dec 11, 2023",
-      img: ["/img/fake2.png"],
-      alt: "Inovindo Internship",
-      list: [
-        "Learned how to adapt to a professional work environment.",
-        "Worked with daily targets, learning time management and completing tasks on schedule under mentor guidance.",
+        "Work with task-based targets, learn to manage time, and complete tasks on time as specified",
         "Attended daily morning and evening briefings, fostering discipline and consistent internal communication.",
       ],
     },
@@ -109,7 +96,7 @@ export default function Experience() {
       alt: "Magang Inovindo",
       list: [
         "Belajar menyesuaikan diri dengan lingkungan kerja profesional.",
-        "Bekerja dengan target harian, belajar mengelola waktu dan menyelesaikan tugas tepat waktu sesuai arahan mentor.",
+        "Bekerja dengan target berbasis tugas, belajar mengelola waktu, dan menyelesaikan tugas tepat waktu sesuai yang ditentuka",
         "Mengikuti briefing pagi dan sore setiap hari, melatih kedisiplinan dan komunikasi internal secara konsisten.",
       ],
     },

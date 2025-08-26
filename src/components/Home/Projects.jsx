@@ -14,7 +14,7 @@ export default function Projects() {
       typeInform: { en: "Web Management", id: "Manajemen Web" },
       tech: { en: "Laravel", id: "Laravel" },
       techInform: { en: "Tech", id: "Teknologi" },
-      gambar: "fake1.png",
+      gambar: "project-simku.png",
     },
     {
       title: "TertibSMK",
@@ -26,7 +26,7 @@ export default function Projects() {
       typeInform: { en: "Web Design", id: "Desain Web" },
       tech: { en: "Laravel", id: "Laravel" },
       techInform: { en: "Tech", id: "Teknologi" },
-      gambar: "fake1.png",
+      gambar: "desainweb-tertibsiswa.png",
     },
   ];
 

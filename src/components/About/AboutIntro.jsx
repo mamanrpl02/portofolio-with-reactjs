@@ -17,8 +17,8 @@ export default function AboutIntro() {
     callMe: "Panggil saya Ma",
     highlighted: "man",
     p1: `Saya lulusan SMK 2025 yang penuh semangat, siap memberikan
-      dampak positif di dunia digital. Saya ingin belajar, berkolaborasi, dan mengaplikasikan kemampuan saya pada proyek-proyek inovatif.`,
-    span: ` Saya ingin belajar`,
+      dampak positif di dunia digital. Saya siap belajar, berkolaborasi, dan mengaplikasikan kemampuan saya pada proyek-proyek inovatif.`,
+    span: ` Saya siap belajar `,
     p2: `,  dan mengaplikasikan kemampuan saya pada proyek-proyek inovatif.`,
     linkedin: "Terhubung di Linkedin",
   };
