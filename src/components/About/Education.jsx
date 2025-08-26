@@ -1,4 +1,6 @@
+import { useState } from "react"; // ⬅️ ini yang kurang
 import { useLang } from "../../context/LangContext";
+import { BiBorderRadius } from "react-icons/bi";
 
 export default function Education() {
   const { lang } = useLang();
@@ -14,6 +16,7 @@ export default function Education() {
       "Elected as Class President for two consecutive years (11th and 12th grade), responsible for managing class coordination, communication with teachers, and fostering cohesion and discipline among peers.",
       "Led a team in a system development project as part of a collaboration program between the RPL (Software Engineering) department and an industry partner. Responsible for managing the team and acting as the team's representative in all interactions with the mentor.",
     ],
+    image: "/img/fake1.png", // ganti path gambar sesuai project
   };
 
   const educationId = {
@@ -27,9 +30,26 @@ export default function Education() {
       "Terpilih sebagai Ketua Kelas selama dua tahun berturut-turut (kelas 11 & 12), bertanggung jawab dalam koordinasi kelas, komunikasi dengan guru, serta menjaga kekompakan dan kedisiplinan teman-teman.",
       "Memimpin tim dalam proyek pengembangan sistem sebagai bagian dari program kolaborasi antara jurusan RPL dengan mitra industri. Bertanggung jawab mengatur tim dan menjadi perwakilan tim dalam setiap interaksi dengan mentor.",
     ],
+    image: "/img/fake1.png", // ganti path gambar sesuai project
   };
 
   const edu = lang === "en" ? educationEn : educationId;
+
+  const [openModal, setOpenModal] = useState(false);
+  const [closing, setClosing] = useState(false);
+
+  const handleOpen = () => {
+    setOpenModal(true);
+    setClosing(false);
+  };
+
+  const handleClose = () => {
+    setClosing(true);
+    setTimeout(() => {
+      setOpenModal(false);
+      setClosing(false);
+    }, 300);
+  };
 
   return (
     <div className="education-contain">
@@ -37,9 +57,16 @@ export default function Education() {
       <div className="edu-flex">
         <div className="left">
           <h3 className="c-white-1">{edu.school}</h3>
-          <p className="major">
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              handleOpen();
+            }}
+            className="major c-white-2 hover-white a-underline"
+          >
             {edu.major} <span className="c-white-2">{edu.span}</span>
-          </p>
+          </a>
           <p>{edu.grade}</p>
           <ul className="point-hover">
             {edu.list.map((item, idx) => (
@@ -50,6 +77,20 @@ export default function Education() {
           </ul>
         </div>
       </div>
+
+      {/* Modal Gambar */}
+      {openModal && (
+        <div
+          className={`modal ${closing ? "fade-out" : "fade-in"}`}
+          onClick={handleClose}
+        >
+          <img
+            src={edu.image}
+            alt={edu.major}
+            className={`modal-content img-edu ${closing ? "zoom-out" : "zoom-in"}`} 
+          />
+        </div>
+      )}
     </div>
   );
 }

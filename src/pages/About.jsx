@@ -10,6 +10,7 @@ import SoftSkills from "../components/About/SoftSkills";
 import BuyMe from "../components/BuyMe";
 import { useEffect } from "react";
 import Footer from "../components/Footer";
+import GameTikus from "../components/About/GameTIkus";
 
 export default function About() {
   useEffect(() => {
@@ -28,6 +29,7 @@ export default function About() {
           <SoftSkills />
         </div>
       </section>
+      <GameTikus/>
       <Footer/>
       <BuyMe />
     </>

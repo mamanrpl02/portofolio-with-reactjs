@@ -8,12 +8,12 @@ export default function Hero() {
   // Teks bahasa Inggris dan Indonesia
   const texts = {
     en: {
-      h1: "From SMK to Be a Web Dev",
-      p: "I keep learning and building small projects to grow into a professional Web Developer.",
+      h1: "SMK Graduate Aspiring to Build a Career in IT",
+      p: "Always ready to learn and create as a Web Developer.",
     },
     id: {
-      h1: "Dari SMK Menjadi Web Developer",
-      p: "Saya terus belajar dan membangun proyek kecil untuk berkembang menjadi Web Developer profesional.",
+      h1: "Lulusan SMK yang ingin berkarir di bidang IT",
+      p: "Selalu siap belajar dan berkarya untuk berkembang sebagai Web Developer.",
     },
   };
 
@@ -77,7 +77,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="hero"> 
+    <section id="hero" className="hero">
       <div className="container-hero">
         <div className="profile-mobile">
           <img src="/img/profile-mobile.png" alt="manzweb" />

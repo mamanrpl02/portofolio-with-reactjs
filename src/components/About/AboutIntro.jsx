@@ -6,20 +6,22 @@ export default function AboutIntro() {
   const textEn = {
     callMe: "Call me Ma",
     highlighted: "man",
-    p1: `I am a passionate 2025 vocational school graduate ready to make a
-      positive impact in the digital world., collaborate, and apply my skills to innovative projects.`,
-    span: ` I am eager to learn`,
-    p2: `, collaborate, and apply my skills to innovative projects.`,
+    p1: `From my internship experiences in two IT industries, I learned to build websites while `,
+    span1: `sharpening my skills `,
+    p2: `in teamwork, communication, and discipline. I’m also interested `,
+    span2: `in AI and often use it `,
+    p3: `to support productivity.`,
     linkedin: "Connect on Linkedin",
   };
 
   const textId = {
     callMe: "Panggil saya Ma",
     highlighted: "man",
-    p1: `Saya lulusan SMK 2025 yang penuh semangat, siap memberikan
-      dampak positif di dunia digital. Saya siap belajar, berkolaborasi, dan mengaplikasikan kemampuan saya pada proyek-proyek inovatif.`,
-    span: ` Saya siap belajar `,
-    p2: `,  dan mengaplikasikan kemampuan saya pada proyek-proyek inovatif.`,
+    p1: `Dari pengalaman magang di dua industri IT, saya belajar membangun website sekaligus `,
+    span1: `mengasah kemampuan `,
+    p2: `kerja tim, komunikasi, dan kedisiplinan. Saat ini, saya juga tertarik `,
+    span2: `pada AI dan sering `,
+    p3: `memanfaatkannya untuk mendukung produktivitas.`,
     linkedin: "Terhubung di Linkedin",
   };
 
@@ -33,7 +35,13 @@ export default function AboutIntro() {
           <span>{text.highlighted}</span>
         </h1>
         <div className="paragraft">
-          <p>{text.p1}<span>{text.span}</span>{text.p2}</p>
+          <p>
+            {text.p1}
+            <span className="c-white-1">{text.span1}</span>
+            {text.p2}
+            <span className="biru">{text.span2}</span>
+            {text.p3}
+          </p>
         </div>
         <a
           target="_blank"

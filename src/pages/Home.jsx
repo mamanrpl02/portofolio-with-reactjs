@@ -27,19 +27,17 @@ export default function Home() {
   const aboutTexts = {
     en: {
       about1:
-        "Learn more about my background and experiences as a Vocational High School graduate.",
-      linkLabel1: "Get to Know Me...",
-      about2:
-        "Find me on social media to learn more about my activities, journey, and background.",
-      linkLabel2: "Find Me",
+        "Get to know my journey and experiences as a Vocational High School graduate.",
+      linkLabel1: "About Me",
+      about2: "Follow my journey on social media and see what I’m working on.",
+      linkLabel2: "Follow Me",
     },
     id: {
-      about1:
-        "Pelajari lebih banyak tentang latar belakang dan pengalaman saya sebagai lulusan SMK.",
-      linkLabel1: "Kenali Saya...",
+      about1: "Kenali perjalanan dan pengalaman saya sebagai lulusan SMK.",
+      linkLabel1: "Tentang Saya",
       about2:
-        "Temukan saya di media sosial untuk mempelajari lebih lanjut tentang aktivitas, perjalanan, dan latar belakang saya.",
-      linkLabel2: "Temukan Saya",
+        "Ikuti perjalanan saya di media sosial dan lihat apa yang sedang saya kerjakan.",
+      linkLabel2: "Ikuti Saya",
     },
   };
   useEffect(() => {

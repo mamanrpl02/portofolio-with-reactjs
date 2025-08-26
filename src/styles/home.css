@@ -1,10 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
  
-
 /* Overlay hitam */
 .modal-overlay {
   position: fixed;
@@ -134,14 +128,7 @@
     transform: translateY(20px) scale(0.95);
   }
 }
-
-
-/* Toggle button */
-.menu {
-  display: none;
-  cursor: pointer;
-}
-
+ 
 .profile-mobile {
   display: none;
 }
@@ -191,6 +178,7 @@
   white-space: nowrap; /* kata tetap utuh */
   display: inline-block;
   margin-right: 0.4em; /* ✅ bikin jarak antar kata */
+  margin-top: 0.7rem;
 }
 
 .hover-pair {

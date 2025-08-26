@@ -5,13 +5,21 @@ export default function Experience() {
   const { lang } = useLang();
   const [openModal, setOpenModal] = useState(null);
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
+  const [closing, setClosing] = useState(false); // 👉 tambahan
 
   const handleOpen = (modalId, index = 0) => {
     setOpenModal(modalId);
     setCurrentImgIndex(index);
+    setClosing(false);
   };
 
-  const handleClose = () => setOpenModal(null);
+  const handleClose = () => {
+    setClosing(true); // jalankan animasi keluar
+    setTimeout(() => {
+      setOpenModal(null);
+      setClosing(false);
+    }, 300); // 300ms sesuai durasi animasi CSS
+  };
 
   // contoh data, yang penting `img` array
   const experiencesEn = [
@@ -170,28 +178,26 @@ export default function Experience() {
       ))}
       {/* Modal */}
       {openModal && (
-        <div className="modal" onClick={handleClose}>
-          <span className="close" onClick={handleClose}>
-            &times;
-          </span>
-
+        <div
+          className={`modal ${closing ? "fade-out" : "fade-in"}`}
+          onClick={handleClose}
+        >
           {experiences
             .filter((exp) => exp.id === openModal)
             .map((exp) => (
               <div
                 key={exp.id}
-                className="modal-inner"
-                onClick={(e) => e.stopPropagation()}
+                className={`modal-inner ${closing ? "zoom-out" : "zoom-in"}`}
               >
-                {/* gambar utama */}
+                <span className="close" onClick={handleClose}>
+                  &times;
+                </span>
                 <img
                   key={currentImgIndex}
-                  className="modal-content fade"
+                  className="modal-content"
                   src={exp.img[currentImgIndex]}
                   alt={exp.alt}
                 />
-
-                {/* thumbnail */}
                 <div className="thumbnails">
                   {exp.img.map((src, idx) => (
                     <img
@@ -201,7 +207,10 @@ export default function Experience() {
                       className={`thumb ${
                         currentImgIndex === idx ? "active" : ""
                       }`}
-                      onClick={() => setCurrentImgIndex(idx)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setCurrentImgIndex(idx);
+                      }}
                     />
                   ))}
                 </div>
