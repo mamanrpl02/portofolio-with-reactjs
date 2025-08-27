@@ -10,7 +10,9 @@ import SoftSkills from "../components/About/SoftSkills";
 import BuyMe from "../components/BuyMe";
 import { useEffect } from "react";
 import Footer from "../components/Footer";
-import GameTikus from "../components/About/GameTIkus";
+import GameSOS from "../components/About/GameSOS";
+// import GameTikus from "../components/About/GameTIkus";
+import CatchMe from "../components/About/CatchMe";
 
 export default function About() {
   useEffect(() => {
@@ -29,7 +31,9 @@ export default function About() {
           <SoftSkills />
         </div>
       </section>
-      <GameTikus/>
+      {/* <GameTikus/> */}
+      {/* <GameSOS/> */}
+      <CatchMe/>
       <Footer/>
       <BuyMe />
     </>

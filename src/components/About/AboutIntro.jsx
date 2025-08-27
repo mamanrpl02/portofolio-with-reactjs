@@ -8,9 +8,9 @@ export default function AboutIntro() {
     highlighted: "man",
     p1: `From my internship experiences in two IT industries, I learned to build websites while `,
     span1: `sharpening my skills `,
-    p2: `in teamwork, communication, and discipline. I’m also interested `,
+    p2: `in teamwork, communication, and discipline. I’m also `,
     span2: `in AI and often use it `,
-    p3: `to support productivity.`,
+    p3: `interested to support productivity.`,
     linkedin: "Connect on Linkedin",
   };
 
@@ -19,8 +19,8 @@ export default function AboutIntro() {
     highlighted: "man",
     p1: `Dari pengalaman magang di dua industri IT, saya belajar membangun website sekaligus `,
     span1: `mengasah kemampuan `,
-    p2: `kerja tim, komunikasi, dan kedisiplinan. Saat ini, saya juga tertarik `,
-    span2: `pada AI dan sering `,
+    p2: `kerja tim, komunikasi, dan kedisiplinan. Saat ini, saya juga `,
+    span2: `tertarik pada AI dan sering `,
     p3: `memanfaatkannya untuk mendukung produktivitas.`,
     linkedin: "Terhubung di Linkedin",
   };

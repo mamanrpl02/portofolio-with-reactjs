@@ -1,35 +1,29 @@
 import { useState, useEffect } from "react";
 
-export default function GameTikusMarquee() {
+export default function GameTikusWhacAMole() {
   const [showModal, setShowModal] = useState(false);
   const [playerName, setPlayerName] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(30);
-  const [speed, setSpeed] = useState(5); // detik animasi
-  const [mice, setMice] = useState([]);
+  const [mice, setMice] = useState([]); // array tikus aktif
 
-  // start game
+  const lanes = 10; // jumlah kolom
+
   const startGame = () => {
     setIsPlaying(true);
     setScore(0);
     setTimeLeft(30);
-    setSpeed(5);
     setMice([]);
   };
 
   // timer
   useEffect(() => {
     if (isPlaying && timeLeft > 0) {
-      const timer = setInterval(() => {
-        setTimeLeft((t) => t - 1);
-      }, 1000);
+      const timer = setInterval(() => setTimeLeft((t) => t - 1), 1000);
       return () => clearInterval(timer);
     }
-    if (timeLeft === 0) {
-      setIsPlaying(false);
-      console.log("Game selesai:", { name: playerName, score });
-    }
+    if (timeLeft === 0) setIsPlaying(false);
   }, [isPlaying, timeLeft]);
 
   // spawn tikus
@@ -37,47 +31,50 @@ export default function GameTikusMarquee() {
     if (!isPlaying) return;
 
     const spawn = setInterval(() => {
-      const id = Date.now() + Math.random(); // id unik
-      const lane = Math.floor(Math.random() * 3); // baris 0,1,2
+      const lane = Math.floor(Math.random() * lanes);
+      const id = Date.now() + Math.random();
 
-      setMice((prev) => [...prev, { id, lane }]);
+      setMice((prev) => {
+        if (prev.some((m) => m.lane === lane)) return prev;
+        return [...prev, { id, lane, hit: false }];
+      });
 
-      // hapus otomatis setelah animasi selesai
+      // hilangkan tikus setelah animasi naik-turun selesai (0.4 + 0.6 detik)
       setTimeout(() => {
         setMice((prev) => prev.filter((m) => m.id !== id));
-      }, speed * 1000);
-    }, 200); // lebih cepat -> makin banyak tikus
-
+      }, 1000);
+    }, 600); // interval spawn
     return () => clearInterval(spawn);
-  }, [isPlaying, speed]);
+  }, [isPlaying]);
 
-  // percepat makin lama
-  useEffect(() => {
-    if (score > 0 && score % 5 === 0) {
-      setSpeed((s) => Math.max(1, s - 0.5));
-    }
-  }, [score]);
-
-  // klik tikus
   const hitMice = (id) => {
     setScore((s) => s + 1);
-    setMice((prev) => prev.filter((m) => m.id !== id));
+    setMice((prev) => prev.map((m) => (m.id === id ? { ...m, hit: true } : m)));
+
+    // hapus bekas tikus setelah 0.3 detik
+    setTimeout(() => {
+      setMice((prev) => prev.filter((m) => m.id !== id));
+    }, 300);
   };
 
   return (
     <div className="game-tikus-container">
-      <h4>Ada Game Nih Buat Kamuu...</h4>
+      <h4>Whac-A-Mole Tikus Edition!</h4>
 
       {!isPlaying && (
         <button onClick={() => setShowModal(true)} className="start-btn">
           Mainkan Game 🐁💼
         </button>
       )}
-
-      {/* Modal input nama */}
       {showModal && (
-        <div className="modal-tikus">
-          <div className="modal-tikus-inner">
+        <div
+          className="modal-tikus"
+          onClick={() => setShowModal(false)} // klik overlay → close modal
+        >
+          <div
+            className="modal-tikus-inner"
+            onClick={(e) => e.stopPropagation()} // klik di dalam modal → jangan close
+          >
             <h3>Masukkan Nama</h3>
             <input
               type="text"
@@ -100,21 +97,27 @@ export default function GameTikusMarquee() {
       )}
 
       {isPlaying && (
-        <div>
+        <div className="container-game">
           <p>
-            Pemain: <b>{playerName}</b> | Skor: <b>{score}</b> <br />
-            Matikan tikusnya dalam Waktu: <b>{timeLeft}</b>
+            Pemain: <b>{playerName}</b> | Skor: <b>{score}</b> | Waktu tersisa:{" "}
+            <b>{timeLeft}</b>
           </p>
 
-          <div className="play-area">
-            {mice.map((m) => (
-              <div
-                key={m.id}
-                className={`mouse lane-${m.lane}`}
-                style={{ animationDuration: `${speed}s` }}
-                onClick={() => hitMice(m.id)}
-              >
-              <img src="../../../public/img/tikus.png"></img> 
+          <div className="play-area-whac">
+            {[...Array(lanes)].map((_, laneIndex) => (
+              <div key={laneIndex} className="lane">
+                {mice
+                  .filter((m) => m.lane === laneIndex)
+                  .map((m) => (
+                    <div
+                      key={m.id}
+                      className={`mouse ${m.hit ? "hit" : ""}`}
+                      onClick={() => hitMice(m.id)}
+                    >
+                      <img src="../../../public/img/tikus.png" alt="tikus" />
+                      {m.hit && <div className="hit-overlay"></div>}
+                    </div>
+                  ))}
               </div>
             ))}
           </div>
