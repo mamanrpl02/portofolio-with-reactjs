@@ -13,6 +13,7 @@ import Footer from "../components/Footer";
 import GameSOS from "../components/About/GameSOS";
 // import GameTikus from "../components/About/GameTIkus";
 import CatchMe from "../components/About/CatchMe";
+import AboutChatbot from "../components/About/AboutChatBot";
 
 export default function About() {
   useEffect(() => {
@@ -33,8 +34,9 @@ export default function About() {
       </section>
       {/* <GameTikus/> */}
       {/* <GameSOS/> */}
-      <CatchMe/>
-      <Footer/>
+      {/* <CatchMe/> */}
+      <AboutChatbot />
+      <Footer />
       <BuyMe />
     </>
   );

@@ -570,115 +570,318 @@
   }
 }
 
-/* 📱 Responsive untuk layar kecil */
-@media (max-width: 437px) {
-  .board {
-    width: 300px;
-    height: 300px;
-    gap: 12px;
-    padding: 12px;
-  }
+/* 🔘 Tombol Chat */
+.chatbot-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #0d6dfd4f;
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 998;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s;
+  animation: pulse 1.8s infinite; /* efek berdenyut */
+}
 
-  .target {
-    width: 60px; /* tikus ikut mengecil */
-  }
+.chatbot-button:hover {
+  background: #3b82f6;
+  transform: scale(8);
+}
 
-  h1 {
-    font-size: 20px;
+/* Efek berdenyut */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(30, 144, 255, 0.6);
   }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 12px rgba(30, 144, 255, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(30, 144, 255, 0);
+  }
+}
 
-  p {
-    font-size: 14px;
+/* 🪟 Panel Chatbot */
+.chatbot-container {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 320px;
+  height: 420px;
+  background: #1c1c1c;
+  border: 1px solid #333;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  z-index: 9999;
+  overflow: hidden;
+  animation: slideUp 0.4s ease; /* animasi buka */
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🔝 Header */
+.chatbot-header {
+  background: #111;
+  color: #3b82f6;
+  padding: 12px;
+  font-weight: bold;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+}
+
+.chatbot-header .close-btn {
+  background: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.chatbot-header .close-btn:hover {
+  color: white;
+}
+
+/* 💬 Area Pesan */
+.chatbot-messages {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  background: #1c1c1c;
+}
+
+/* Animasi muncul chat */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chat-message {
+  padding: 10px 14px;
+  margin: 6px 0;
+  border-radius: 12px;
+  max-width: 80%;
+  word-wrap: break-word;
+  font-size: 14px;
+  line-height: 1.4;
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+.chat-message.user {
+  background: #3b82f6;
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.chat-message.bot {
+  background: #2a2a2a;
+  color: #ddd;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+/* ⌨️ Typing Indicator */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  background: #2a2a2a;
+  border-radius: 12px;
+  width: fit-content;
+  margin: 6px 0;
+  animation: fadeInUp 0.3s ease;
+}
+
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  background: #ddd;
+  border-radius: 50%;
+  animation: bounce 1.3s infinite;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0.6);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ⌨️ Input */
+.chatbot-input {
+  display: flex;
+  border-top: 1px solid #333;
+  background: #111;
+}
+
+.chatbot-input input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  outline: none;
+  background: #1c1c1c;
+  color: white;
+  font-size: 14px;
+}
+
+.chatbot-input input::placeholder {
+  color: #777;
+}
+
+.chatbot-input button {
+  background: #3b82f6;
+  border: none;
+  color: white;
+  padding: 0 18px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.chatbot-input button:hover {
+  background: #0d6efd;
+}
+
+/* Overlay transparan */
+.chatbot-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 9998;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  transition: all 1s;
+}
+
+/* Animasi muncul */
+.chatbot-container.open {
+  animation: slideUp 0.3s ease forwards;
+}
+
+/* Animasi keluar */
+.chatbot-container.closing {
+  animation: slideDown 0.3s ease forwards;
+}
+
+/* Keyframes */
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+}
+
+/* Styling scrollbar khusus di dalam pesan chatbot */
+.chatbot-messages {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  background: #1c1c1c;
+  /* biar smooth */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #3b82f6 #111; /* Firefox (thumb, track) */
+}
+
+/* Chrome, Edge, Safari */
+.chatbot-messages::-webkit-scrollbar {
+  width: 8px; /* lebar scrollbar */
+}
+
+.chatbot-messages::-webkit-scrollbar-track {
+  background: #111; /* warna jalur */
+  border-radius: 10px;
+}
+
+.chatbot-messages::-webkit-scrollbar-thumb {
+  background: #3b82f6; /* warna pegangan */
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.chatbot-messages::-webkit-scrollbar-thumb:hover {
+  background: #0d6efd; /* warna saat hover */
+}
+
+.sugest-btn {
+  margin: 4px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  background: #3b82f6;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+.sugest-btn:hover {
+  background: #2563eb;
 }
 
 /* --- MEDIA QUERIES --- */
-
-/* Layar kecil tablet / mobile */
-@media (max-width: 1024px) {
-  .play-area-whac {
-    height: 300px;
-  }
-  .lane {
-    width: 9%; /* tetap 10 kolom, sedikit lebih besar */
-  }
-
-  .mouse {
-    width: 80px; /* lebar tikus */
-    position: absolute;
-    bottom: 0;
-  }
-  .modal-tikus-inner {
-    width: 280px;
-    padding: 25px 30px;
-  }
-}
-
-/* Layar smartphone kecil */
-@media (max-width: 768px) {
-  .game-tikus-container {
-    padding: 1.5rem 1rem;
-  }
-
-  .play-area-whac {
-    height: 250px;
-  }
-
-  .lane {
-    width: 9.5%; /* kolom sedikit lebih besar */
-  }
-  .mouse {
-    width: 100px; /* lebar tikus */
-    position: absolute;
-    bottom: 0;
-  }
-
-  .modal-tikus-inner {
-    width: 90%;
-    padding: 20px;
-  }
-
-  .modal-tikus-inner h3 {
-    font-size: 1.2rem;
-  }
-
-  .modal-tikus-inner input,
-  .modal-tikus-inner button {
-    font-size: 0.95rem;
-    padding: 8px 10px;
-  }
-}
-
-/* Layar smartphone sangat kecil */
-@media (max-width: 480px) {
-  .play-area-whac {
-    height: 200px;
-  }
-
-  .lane {
-    width: 9.8%;
-  }
-
-  .mouse {
-    max-width: 90px;
-    height: auto;
-  }
-
-  .modal-tikus-inner {
-    width: 95%;
-    padding: 15px 20px;
-  }
-
-  .modal-tikus-inner h3 {
-    font-size: 1.1rem;
-  }
-
-  .modal-tikus-inner input,
-  .modal-tikus-inner button {
-    font-size: 0.9rem;
-    padding: 6px 8px;
-  }
-}
 
 /* Mobile styles */
 @media (max-width: 917px) {
@@ -739,6 +942,21 @@
   }
   .buyMe {
     margin-bottom: 0rem;
+  }
+  .chatbot-container {
+    bottom: 120px;
+    z-index: 999;
+  }
+
+  .chatbot-button {
+    background-color: #0d6dfd4f;
+    position: fixed;
+    bottom: 90px;
+    z-index: 998;
+    right: 30px;
+    color: white;
+    border: none;
+    padding: 0.6rem;
   }
 }
 

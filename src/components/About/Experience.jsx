@@ -28,7 +28,7 @@ export default function Experience() {
       title: "Paskibraka",
       subtitle: "(Organization)",
       linkText: "Flag Hoisting Troop for the 78th Indonesian Independence Day",
-      img: ["/img/fake1.png"],
+      img: ["/img/fake1.png", "/img/fake2.png"],
       alt: "Paskibraka 78",
       list: [
         "Selected to represent the school at the district level as a member of Paskibraka, demonstrating strong leadership and responsibility.",
@@ -41,7 +41,7 @@ export default function Experience() {
       title: "PT. INOVINDO DIGITAL MEDIA",
       subtitle: "(Internship)",
       linkText: "Web Developer Intern, Bandung, Sept 10 - Dec 11, 2023",
-      img: ["/img/fake2.png"],
+      img: ["/img/fake2.png", "/img/fake1.png"],
       alt: "Inovindo Internship",
       list: [
         "Learned how to adapt to a professional work environment.",
@@ -54,7 +54,7 @@ export default function Experience() {
       title: "PT. FATH SINERGY GROUP",
       subtitle: "(Online Internship at School)",
       linkText: "UI/UX Designer Intern, Bandung, Sept 10 - Dec 11, 2023",
-      img: ["/img/fake1.png"],
+      img: ["/img/fake1.png", "/img/fake2.png"],
       alt: "Fathforce Internship",
       list: [
         "Gained essential soft skills such as professional communication, work responsibility, and industry work ethics.",
@@ -68,7 +68,7 @@ export default function Experience() {
       subtitle: "(Organization)",
       linkText:
         "17th August Celebration Committee (80th Independence Day), Village Pusakaratu RT(09)",
-      img: ["/img/fake1.png"],
+      img: ["/img/fake1.png", "/img/fake2.png"],
       alt: "80th Independence Day Celebration",
       list: [
         "Contributed to the event and logistics division, supporting the smooth execution of the entire program.",
@@ -87,7 +87,7 @@ export default function Experience() {
       title: "Paskibraka",
       subtitle: "(Organisasi)",
       linkText: "Pasukan Pengibar Bendera Hut RI 78",
-      img: ["/img/fake1.png"],
+      img: ["/img/fake1.png", "/img/fake2.png"],
       alt: "Paskibraka 78",
       list: [
         "Terpilih mewakili sekolah di tingkat kecamatan sebagai anggota Paskibraka, yang menunjukkan kemampuan leadership dan tanggung jawab yang tinggi.",
@@ -100,7 +100,7 @@ export default function Experience() {
       title: "PT. INOVINDO DIGITAL MEDIA",
       subtitle: "(Magang)",
       linkText: "Web Developer Intern Bandung, 10 Sept - 11 Dec 2023",
-      img: ["/img/fake2.png"],
+      img: ["/img/fake2.png", "/img/fake1.png"],
       alt: "Magang Inovindo",
       list: [
         "Belajar menyesuaikan diri dengan lingkungan kerja profesional.",
@@ -113,7 +113,7 @@ export default function Experience() {
       title: "PT. FATH SINERGY GROUP",
       subtitle: "(Magang Online In School)",
       linkText: "UI/UX Designer Intern Bandung, 10 Sept - 11 Dec 2023",
-      img: ["/img/fake1.png"],
+      img: ["/img/fake1.png", "/img/fake2.png"],
       alt: "Magang Fathforce",
       list: [
         "Mendapatkan pengalaman soft skills penting seperti komunikasi profesional, tanggung jawab kerja, dan etika kerja industri.",
@@ -127,7 +127,7 @@ export default function Experience() {
       subtitle: "(Organisasi)",
       linkText:
         "Panitia Lomba 17 Agustus (HUT RI ke-80), Desa Pusakaratu RT(09)",
-      img: ["/img/fake1.png"],
+      img: ["/img/fake1.png", "/img/fake2.png"],
       alt: "Kegiatan Lomba HUT RI ke-80",
       list: [
         "Berperan dalam seksi acara dan perlengkapan untuk mendukung jalannya seluruh kegiatan.",
