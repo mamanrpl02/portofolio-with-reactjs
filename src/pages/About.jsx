@@ -9,10 +9,7 @@ import Skills from "../components/About/Skills";
 import SoftSkills from "../components/About/SoftSkills";
 import BuyMe from "../components/BuyMe";
 import { useEffect } from "react";
-import Footer from "../components/Footer";
-import GameSOS from "../components/About/GameSOS";
-// import GameTikus from "../components/About/GameTIkus";
-import CatchMe from "../components/About/CatchMe";
+import Footer from "../components/Footer"; 
 import AboutChatbot from "../components/About/AboutChatBot";
 
 export default function About() {
@@ -31,10 +28,7 @@ export default function About() {
           <Skills />
           <SoftSkills />
         </div>
-      </section>
-      {/* <GameTikus/> */}
-      {/* <GameSOS/> */}
-      {/* <CatchMe/> */}
+      </section> 
       <AboutChatbot />
       <Footer />
       <BuyMe />
