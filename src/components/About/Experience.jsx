@@ -189,9 +189,6 @@ export default function Experience() {
                 key={exp.id}
                 className={`modal-inner ${closing ? "zoom-out" : "zoom-in"}`}
               >
-                <span className="close" onClick={handleClose}>
-                  &times;
-                </span>
                 <img
                   key={currentImgIndex}
                   className="modal-content"
